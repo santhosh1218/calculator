@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <style>
+        input[type='button']{
+            cursor: pointer;
+            padding:10px;
+            font-size: 50px;
+            border:none;
+            width: 150px;
+        }
+        input[type='button']:hover{
+            background-color:rgb(0, 225, 255);
+        }
+        #display{
+            border: transparent(0.1);
+            width: 590px;
+            height: 50px;
+            font-size: 40px;
+        }
+        #calculator{
+            width:200px ;
+            height: 200px;
+            margin: 30px;
+            padding: 30px;
+        
+
+        }
+       .btn{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        width: 250px;
+        font-size: 100px;
+        border-radius: 10px;
+        }
+      
+
+    </style>
+</head>
+<body>
+    <h1 style="text-align: left;text-transform: uppercase;padding-left: 40px;">Calculator</h1>
+    <div id="calculator"> 
+        <input id="display">   
+        <div class="btn">
+            <input type="button" value="Clear" onclick="Clear()">
+            <input type="button" value="%" onclick="press('%')">
+            <input type="button" value="<" onclick="undo()">
+            <input type="button" value="/" onclick="press('/')">   
+            <input type="button" value="7" onclick="press('7')">
+            <input type="button" value="8" onclick="press('8')">
+            <input type="button" value="9" onclick="press('9')">
+            <input type="button" value="*" onclick="press('*')">   
+            <input type="button" value="4" onclick="press('4')">
+            <input type="button" value="5" onclick="press('5')">
+            <input type="button" value="6" onclick="press('6')">
+            <input type="button" value="-" onclick="press('-')">
+            <input type="button" value="1" onclick="press('1')">
+            <input type="button" value="2" onclick="press('2')">
+            <input type="button" value="3" onclick="press('3')">
+            <input type="button" value="+" onclick="press('+')">
+            <input type="button" value="00" onclick="press('00')">
+            <input type="button" value="0" onclick="press('0')">
+            <input type="button" value="." onclick="press('.')">
+            <input type="button" value="=" onclick="result()">
+
+        </div>
+         
+    </div>
+
+    <script>
+    let display=document.getElementById('display');
+    function press(val){ 
+        display.value+=val;
+      }
+    function Clear(){
+        document.getElementById('display').value='';
+    }
+
+    function undo(){
+        let backspace=document.getElementById('display').value;
+        document.getElementById('display').value=backspace.substring(0,backspace.length -1);
+
+    };
+    
+    function result(){
+        display.value=eval(display.value);
+
+    }
+
+    </script>
+    
+</body>
+</html>
